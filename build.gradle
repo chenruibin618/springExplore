@@ -1,8 +1,13 @@
 plugins {
-	id 'org.springframework.boot' version '2.1.11.RELEASE'
+	id 'org.springframework.boot' version '2.2.6.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
 	id 'java'
 }
+
+apply plugin: 'jacoco'
+apply plugin: 'groovy'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
 
 group = 'com.crb'
 version = '0.0.1-SNAPSHOT'
@@ -20,13 +25,23 @@ repositories {
 }
 
 dependencies {
+	compile "com.google.code.gson:gson:2.8.5"
+	compile 'commons-beanutils:commons-beanutils:1.9.3'
+	compile 'org.redisson:redisson:3.12.4'
+	compile 'io.projectreactor:reactor-core'
+	compile 'io.projectreactor:reactor-test'
+
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation "org.springframework.boot:spring-boot-starter-activemq"
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 
-	compile 'commons-beanutils:commons-beanutils:1.9.3'
-
-
+	compileOnly('org.projectlombok:lombok')
+	annotationProcessor('org.projectlombok:lombok')
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	runtimeOnly 'com.h2database:h2'
+
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testCompile 'org.spockframework:spock-core:1.1-groovy-2.4'
+	testCompile 'org.spockframework:spock-spring:1.1-groovy-2.4'
 }

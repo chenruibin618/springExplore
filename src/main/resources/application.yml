@@ -1,0 +1,20 @@
+server:
+  port: 8085
+
+spring:
+  redis:
+    host: localhost
+    port: 6379
+    password: SogouTED2020
+    database: 3
+    jedis:
+      pool:
+        max-active: 200
+        max-idle: 70
+        min-idle: 12
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

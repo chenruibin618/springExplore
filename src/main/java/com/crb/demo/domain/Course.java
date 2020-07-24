@@ -1,4 +1,4 @@
-package domain;
+package com.crb.demo.domain;
 
 import java.util.HashMap;
 import java.util.List;

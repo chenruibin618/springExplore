@@ -1,4 +1,4 @@
-package domain;
+package com.crb.demo.domain;
 
 public class Student {
     private String name;
